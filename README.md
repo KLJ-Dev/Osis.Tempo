@@ -1,4 +1,4 @@
-# 🕒 OSIS.TEMPO
+# 🕒 Osis.Tempo
 
 **개인의 하루 일정을 계획하고 관리하는 Java/Spring Boot 기반 웹 스케줄 관리 서비스입니다.**
 
