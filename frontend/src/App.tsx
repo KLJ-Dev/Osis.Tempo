@@ -68,8 +68,11 @@ function loadLayouts(): LayoutMap {
     const ids = items.map(item => (item && typeof item === 'object' ? (item as { i?: unknown }).i : null));
     if (new Set(ids).size !== 4 || widgetKeys.some(key => !ids.includes(key))) return structuredClone(DEFAULT_LAYOUT);
     if (items.some(item => !item || typeof item !== 'object' ||
-      ['x', 'y', 'w', 'h'].some(field => !Number.isInteger((item as Record<string, unknown>)[field]) ||
-        (item as Record<string, number>)[field] < (field === 'w' || field === 'h' ? 1 : 0)))) return structuredClone(DEFAULT_LAYOUT);
+      ['x', 'y', 'w', 'h'].some(field => {
+        const value = (item as Record<string, unknown>)[field];
+        return typeof value !== 'number' || !Number.isInteger(value) ||
+          value < (field === 'w' || field === 'h' ? 1 : 0);
+      }))) return structuredClone(DEFAULT_LAYOUT);
   }
   return saved as LayoutMap;
 }
