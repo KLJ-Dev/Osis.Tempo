@@ -204,7 +204,7 @@ export default function App() {
         <Grid
           className={`tempo-grid ${editing ? 'grid-editing' : ''}`}
           layouts={layouts}
-          breakpoints={{ lg: 1200, md: 850, sm: 600, xs: 0 }}
+          breakpoints={{ lg: 1200, md: 700, sm: 520, xs: 0 }}
           cols={{ lg: 10, md: 10, sm: 1, xs: 1 }}
           rowHeight={60}
           margin={[16, 16]}
